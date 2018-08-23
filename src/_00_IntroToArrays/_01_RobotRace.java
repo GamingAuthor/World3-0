@@ -5,10 +5,29 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 
 import org.jointheleague.graphical.robot.Robot;
-
 public class _01_RobotRace {
 	//1. make a main method
-	
+	public static void main(String[] args) {
+		Robot[] mister = new Robot[5];
+		for(int i = 0; i<mister.length;i++) {
+			mister[i] = new Robot();
+			mister[i].moveTo(50+(i*100), 500);
+			mister[i].setSpeed(10);
+		}
+		boolean raceOver=false;
+		while(!raceOver) {
+		for(int i = 0; i<mister.length;i++) {
+			Random r = new Random();
+			mister[i].move(r.nextInt(50));
+			if(mister[i].getY()<=0) {
+				raceOver=true;
+				JOptionPane.showMessageDialog(null, "Robot "+(mister[i].getX()/50)+" has won!");
+				break;
+			}
+		}
+		
+		}
+	}
 		//2. create an array of 5 robots.
 
 		//3. use a for loop to initialize the robots.
