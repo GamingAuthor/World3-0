@@ -6,9 +6,10 @@ import javax.swing.JOptionPane;
 
 import org.jointheleague.graphical.robot.Robot;
 public class _01_RobotRace {
-	//1. make a main method
+	static //1. make a main method
+	Robot[] mister = new Robot[8];
 	public static void main(String[] args) {
-		Robot[] mister = new Robot[5];
+
 		for(int i = 0; i<mister.length;i++) {
 			mister[i] = new Robot();
 			mister[i].moveTo(50+(i*100), 500);
@@ -21,12 +22,12 @@ public class _01_RobotRace {
 			mister[i].move(r.nextInt(50));
 			if(mister[i].getY()<=0) {
 				raceOver=true;
-				JOptionPane.showMessageDialog(null, "Robot "+(mister[i].getX()/50)+" has won!");
+				JOptionPane.showMessageDialog(null, "Robot "+(mister[i].getX()/100+1)+" has won!");
 				break;
 			}
 		}
-		
 		}
+
 	}
 		//2. create an array of 5 robots.
 
